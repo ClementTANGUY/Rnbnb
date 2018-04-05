@@ -9,41 +9,41 @@
   </head>
 
   <body>
-    <nav class="nav navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="<%= root_path %>">Petsy</a>
+    <nav class="nav navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="<%= root_path %>">RNBNB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-          <ul class="nav navbar-nav collapse navbar-collapse justify-content-center" id="navbar" >
+        </button> 
+          <ul class="nav navbar-nav collapse navbar-collapse justify-content-right" id="navbar" >
             <li class="nav-item">
-              <a href="#" class="nav-link navbar-text">Les articles</a>
+              <a href="#" class="nav-link navbar-text">Devenez hôte</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link navbar-text">Les animaux</a>
+              <a href="#" class="nav-link navbar-text">Message</a>
             </li>
           </ul>
         <div class="nav navbar-expand container d-flex flex-row-reverse" id="navbar">
           <ul class="nav navbar-nav pr-5 mr-5 " id="navbar">
 
           <% if user_signed_in? %>
-          <li class="nav-item dropdown dropdown-dark" id="navbar">
+          <li class="nav-item dropdown dropdown-light" id="navbar">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">  
                     <%= current_user.email %>
                     
                 <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu bg bg-dark" role="menu" id="navbar">
-                <li class="dropdown-item bg-dark">#</li>
-                <li class="dropdown-item bg-dark">#</li>
+              <ul class="dropdown-menu bg" role="menu" id="navbar">
+                <li class="dropdown-item">Mon compte</li>
+                <li class="dropdown-item">Se déconecter</li>
               </ul>
           </li>
             
           <%else%>
             <li>
-              <a href="<%= new_user_path %>" class="nav-link">S'inscrire</a>
+              <a href="<%= new_user_registration_path %>" class="nav-link">S'inscrire</a>
             </li>
             <li>
-              <a href="<%= new_session_path %>" class="nav-link mr-5">Se connecter</a>
+              <a href="<%= new_user_session_path %>" class="nav-link mr-5">Se connecter</a>
             </li>
           <%end%>
           </ul>
