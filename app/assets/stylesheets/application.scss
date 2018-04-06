@@ -19,11 +19,15 @@ body {
   font-weight: 400;
 }
 
-.navbar-expand-md {
-	border-bottom: 1px;
-  	border-color: #565a5c;
+nav {
+	max-height: 60px;
+	border-bottom: 1px solid;
+  	border-color: #dce0e0;
 }
 
+.fin {
+	max-height: 37px;
+}
 .btn-primary.btn {
   border: 1px solid #ff5a5f;
   border-radius: 2px;
