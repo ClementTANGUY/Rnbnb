@@ -28,13 +28,13 @@
           <% if user_signed_in? %>
           <li class="nav-item dropdown dropdown-light" id="navbar">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %> , <%= current_user.fullname %>
+                <img src="<%= avatar_url(current_user) %>" class="rounded-circle avatar-small">  <%= current_user.fullname %>
 
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu bg" role="menu" id="navbar">
-                <li class="dropdown-item">Mon compte</li>
-                <li class="dropdown-item">Se déconecter</li>
+                <li class="dropdown-item"><a href="<%= edit_user_registration_path %>" class="nav-link" >Mon compte</a></li>
+                <li class="dropdown-item"><a href="<%= destroy_user_session_path %>" class="nav-link" data-method="delete">Se déconnecter</a></li>
               </ul>
           </li>
 
