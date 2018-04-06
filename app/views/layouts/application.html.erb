@@ -13,7 +13,7 @@
         <a class="navbar-brand" href="<%= root_path %>">RNBNB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button> 
+        </button>
           <ul class="nav navbar-nav collapse navbar-collapse justify-content-right" id="navbar" >
             <li class="nav-item">
               <a href="#" class="nav-link navbar-text">Devenez hôte</a>
@@ -27,17 +27,17 @@
 
           <% if user_signed_in? %>
           <li class="nav-item dropdown dropdown-light" id="navbar">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">  
-                    <%= current_user.email %>
-                    
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <img src="<%= avatar_url(current_user) %>" class="rounded-circle avatar-small">  <%= current_user.fullname %>
+
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu bg" role="menu" id="navbar">
-                <li class="dropdown-item">Mon compte</li>
-                <li class="dropdown-item">Se déconecter</li>
+                <li class="dropdown-item"><a href="<%= edit_user_registration_path %>" class="nav-link" >Mon compte</a></li>
+                <li class="dropdown-item"><a href="<%= destroy_user_session_path %>" class="nav-link" data-method="delete">Se déconnecter</a></li>
               </ul>
           </li>
-            
+
           <%else%>
             <li>
               <a href="<%= new_user_registration_path %>" class="nav-link">S'inscrire</a>
@@ -51,7 +51,7 @@
     </nav>
 
 
-    
+
 
 
     <p class="notice"><%= notice %></p>
