@@ -6,11 +6,11 @@ class RoomsController < ApplicationController
 
 
 
-  def :new
+  def new
     @room = current_user.rooms.build
   end
 
-  def :create
+  def create
     @room = current_user.rooms.build(room_params)
     if @room.save
           redirect_to @room, notice: "Annonce ajoutée avec succès..."
@@ -19,18 +19,18 @@ class RoomsController < ApplicationController
     end
   end
 
-  def :show
+  def show
     @room = Room.find(params[:id])
   end
 
-  def :index
+  def index
     @rooms = current_user.rooms
   end
 
-  def :edit
+  def edit
   end
 
-  def :update
+  def update
     @room.update(room_params)
     if @room.update
       redirect_to @room, notice: "votre annonce à été modifiée avec succés..."
@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
     end
   end
 
-  def :destroy
+  def destroy
     @room.destroy
     if @room.destroy
       redirect_to :index, notice: "votre annonce à bien été suprimmée..."
@@ -62,6 +62,5 @@ class RoomsController < ApplicationController
                                    :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, 
                                    :active)
   end
-
 
 end

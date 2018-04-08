@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>R'n'bnb</title>
+    <title>R'n'Bnb</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +16,7 @@
           <button type="button" class="navbar-toggler gauche" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="/"> <%= image_tag("favicon.ico", width: '32', height: '32' ) %> R'n'bnb</a>
+          <a class="navbar-brand" href="/"> <%= image_tag("favicon.ico", width: '32', height: '32' ) %> R'n'Bnb</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           
@@ -29,7 +29,7 @@
           <ul class="nav navbar-nav ml-auto p-1 destra">
              
             <li class="nav-item">
-               <a href="#" class="nav-link">
+               <a href="<%= new_room_path %>" class="nav-link">
                  Devenez hôte
               </a>
             </li>
