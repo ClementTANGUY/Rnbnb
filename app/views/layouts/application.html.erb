@@ -1,62 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rnbnb</title>
+    <title>R'n'bnb</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
-    <nav class="nav navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="<%= root_path %>">RNBNB</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-          <ul class="nav navbar-nav collapse navbar-collapse justify-content-right" id="navbar" >
-            <li class="nav-item">
-              <a href="#" class="nav-link navbar-text">Devenez hôte</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link navbar-text">Message</a>
-            </li>
-          </ul>
-        <div class="nav navbar-expand container d-flex flex-row-reverse" id="navbar">
-          <ul class="nav navbar-nav pr-5 mr-5 " id="navbar">
-
-          <% if user_signed_in? %>
-          <li class="nav-item dropdown dropdown-light" id="navbar">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                <img src="<%= avatar_url(current_user) %>" class="rounded-circle avatar-small">  <%= current_user.fullname %>
-
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu bg" role="menu" id="navbar">
-                <li class="dropdown-item"><a href="<%= edit_user_registration_path %>" class="nav-link" >Mon compte</a></li>
-                <li class="dropdown-item"><a href="<%= destroy_user_session_path %>" class="nav-link" data-method="delete">Se déconnecter</a></li>
-              </ul>
-          </li>
-
-          <%else%>
-            <li>
-              <a href="<%= new_user_registration_path %>" class="nav-link">S'inscrire</a>
-            </li>
-            <li>
-              <a href="<%= new_user_session_path %>" class="nav-link mr-5">Se connecter</a>
-            </li>
-          <%end%>
-          </ul>
+    <nav class="nav navbar navbar-light navbar-expand-md">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggler gauche" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/"> <%= image_tag("favicon.ico", width: '32', height: '32' ) %> R'n'bnb</a>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          
+          <form class="form-inline navbar-left" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <div class="search">
+              <span class="fa fa-search"></span>
+              <input type="text" name="search" id="search" placeholder="Rechercher" class="form-control fin" />
+            </div>
+          </form>          
+          <ul class="nav navbar-nav ml-auto p-1 destra">
+             
+            <li class="nav-item">
+               <a href="#" class="nav-link">
+                 Devenez hôte
+              </a>
+            </li>
+             
+             <li class="nav-item">
+                <a href="#" class="nav-link">
+                   Messages
+                </a>
+            </li>
+            <% if user_signed_in? %>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle avatar-small" src="<%= avatar_url(current_user) %>"/> <%= current_user.fullname %>  <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="nav-link">Mes annonces</a></li>
+                <li><a href="#" class="nav-link">Mes réservations</a></li>
+                <li><a href="#" class="nav-link">Mes voyages</a></li>
+                <li><a href="<%= edit_user_registration_path %>" class="nav-link">Modifier mon profil</a></li>
+                
+                <li role="separator" class="divider"></li>
+                <li><a rel="nofollow" data-method="delete" href="<%= destroy_user_session_path %>" class="nav-link">Déconnexion</a></li>
+                <% else %>
+                <li>
+                  <a href="<%= new_user_registration_path %>" class="nav-link rose">S'inscrire</a>
+                </li>
+                <li>
+                  <a href="<%= new_user_session_path %>" class="nav-link rose">Se connecter</a>
+                </li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </nav>
 
 
 
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<%= render 'shared/message' %>
 
-    <%= yield %>
+   <div class="container">
+      <%= yield %>
+   </div>
+    
+
+   
+    
   </body>
 </html>
