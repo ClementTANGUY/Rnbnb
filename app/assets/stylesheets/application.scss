@@ -3,7 +3,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-body {  
+body {
   color: #565a5c;
 }
 
@@ -58,13 +58,13 @@ nav {
 .btn-primary.btn:hover, .btn-primary.btn:focus {
   border-color: #ff7e82;
   border-bottom-color: #fa0008;
-  background-color: #ff7e82;  
+  background-color: #ff7e82;
   outline:none;
 }
 
 .btn-primary.btn:active {
   border-color: #e00007;
-  background-color: #e00007;  
+  background-color: #e00007;
   outline:none;
 }
 
@@ -197,9 +197,9 @@ select {
 .select:before {
   content: '\25bc';
   font-size: 1.2em;
-  position: absolute;  
+  position: absolute;
   color: #82888A;
-  top: 40px;  
+  top: 40px;
   right: 30px;
   transform: scale(0.84, 0.42);
 }
@@ -275,7 +275,7 @@ input[type="checkbox"]:checked:before {
   text-decoration: none;
 }
 
-#wrapper { 
+#wrapper {
   width:960px;
   margin:0 auto;
 }
@@ -299,7 +299,7 @@ input[type="checkbox"]:checked:before {
 .search { position: relative; }
 .search input { text-indent: 30px;}
 
-.search .fa-search { 
+.search .fa-search {
   position: absolute;
   top: 12px;
   left: 7px;
@@ -338,12 +338,12 @@ padding:5px; /* amount of space between the text and the border of the button */
 
 .btn-primary-fb.btn:hover, .btn-primary-fb.btn:focus {
   border-color: #627aac;
-  background-color: #627aac;  
+  background-color: #627aac;
   outline:none;
 }
 
 .btn-primary-fb.btn:active {
   border-color: #2b2eb2;
-  background-color: #2b2ebB2;  
+  background-color: #2b2ebB2;
   outline:none;
 }

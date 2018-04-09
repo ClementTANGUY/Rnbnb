@@ -1,0 +1,25 @@
+<% if @photos %>
+
+ <div class="row">
+
+        <% @photos.each do |photo| %>
+
+             <div class="col-md-4">
+
+                  <div class="card card-default">
+
+                        <div class="card-header">
+
+                             <%= image_tag photo.image.url() %>
+
+                        </div>
+
+                  </div>
+
+             </div>
+
+       <% end %>
+
+ </div>
+
+ <% end %>

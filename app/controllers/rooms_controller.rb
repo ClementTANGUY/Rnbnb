@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  
+
 
   before_action :set_room, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
@@ -71,10 +71,10 @@ class RoomsController < ApplicationController
   end
 
   def room_params
- 
-      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, 
-                                   :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, 
-                                   :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, 
+
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room,
+                                   :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet,
+                                   :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price,
                                    :active)
   end
 
