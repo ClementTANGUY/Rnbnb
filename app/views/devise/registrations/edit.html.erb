@@ -31,7 +31,6 @@
         <br>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          
 
           <div class="form-group">
             <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder:"Nom complet (NOM + Prénom)" %>
@@ -64,4 +63,5 @@
          </div>
    </div>
 </div>
+
 <%= render 'shared/devise_errors' %>
