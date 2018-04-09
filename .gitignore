@@ -22,6 +22,4 @@
 
 .byebug_history
 
-*.png
-
-*.jpg
+/public/system
