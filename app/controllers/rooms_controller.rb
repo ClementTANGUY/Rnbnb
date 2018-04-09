@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   before_action :set_room, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
-
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
   def new
@@ -14,7 +14,13 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.new(room_params)
     @room.save
     if @room.save
-      redirect_to @room, notice: "Annonce ajoutée avec succès..."
+      if params[:images]
+        params[:images].each do |i|
+          @room.photos.create(image: i)
+        end
+      end
+      @photos = @room.photos
+      redirect_to edit_room_path(@room), notice: "Annonce ajoutée avec succès..."
     else
       render :new, alert: "Votre annonce n'à pas pu être ajoutée..."
     end
@@ -22,6 +28,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @photos = @room.photos
   end
 
   def index
@@ -29,12 +36,19 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @photos = @room.photos
   end
 
   def update
     @room.update(room_params)
     if @room.update
-      redirect_to @room, notice: "votre annonce à été modifiée avec succés..."
+      if params[:images]
+        params[:images].each do |i|
+          @room.photos.update(image: i)
+        end
+      end
+      @photos = @room.photos
+      redirect_to edit_room_path(@room), notice: "votre annonce à été modifiée avec succés..."
     else
       render :edit, alert: "votre annonce n'a pas pu être modifiée..."
     end
@@ -62,6 +76,13 @@ class RoomsController < ApplicationController
                                    :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet, 
                                    :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price, 
                                    :active)
+  end
+
+  def require_same_user
+    if current_user.id != @room_id
+      flash[:danger] = "Vous ne pouvez pas modifier cette page..."
+      redirect_to root_path
+    end
   end
 
 end
