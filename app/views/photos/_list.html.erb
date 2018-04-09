@@ -12,6 +12,21 @@
 
                              <%= image_tag photo.image.url() %>
 
+                             <div class="card-body">
+
+                                <span class="pull-right">
+
+                                        <%= link_to photo, remote: true, method: :delete, data:
+                                             {confirm: "Certain de vouloir supprimer cette photo?"} do %>
+
+                                         <i class="fa fa-times fa-lg"></i>
+
+                                         <% end %>
+
+                               </span>
+
+                           </div>
+
                         </div>
 
                   </div>
