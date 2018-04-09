@@ -79,9 +79,8 @@ class RoomsController < ApplicationController
   end
 
   def require_same_user
-    if current_user.id != @room_id
-      flash[:danger] = "Vous ne pouvez pas modifier cette page..."
-      redirect_to root_path
+    if current_user.id != @room.user_id
+      redirect_to root_path, alert: "Vous ne pouvez pas modifier cette page..."
     end
   end
 
