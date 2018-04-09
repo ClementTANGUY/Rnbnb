@@ -45,7 +45,7 @@
                 <% if current_user.avatar %>
                   <img class="rounded-circle avatar-small" src="<%= avatar_url(current_user) %>"/>
                 <% else %>
-                  <img src="assets/images/default_image.png">
+                  <img src="assets/images/default_image.png" class="rounded-circle avatar-small">
                 <% end %>
                  <%= current_user.fullname %>  <span class="caret"></span></a>
               <ul class="dropdown-menu">
