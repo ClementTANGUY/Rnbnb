@@ -7,13 +7,14 @@ class RoomsController < ApplicationController
 
 
   def new
-    @room = current_user.rooms.build
+    @room = current_user.rooms.new
   end
 
   def create
-    @room = current_user.rooms.build(room_params)
+    @room = current_user.rooms.new(room_params)
+    @room.save
     if @room.save
-          redirect_to @room, notice: "Annonce ajoutée avec succès..."
+      redirect_to @room, notice: "Annonce ajoutée avec succès..."
     else
       render :new, alert: "Votre annonce n'à pas pu être ajoutée..."
     end

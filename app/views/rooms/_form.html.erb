@@ -36,6 +36,7 @@
                     </div>    
                      
                 </div>
+
                 
                 <div class="row">
                     <div class="col-md-4 select">
@@ -121,16 +122,20 @@
                     <div class="form-group">
                         <label>Prix par nuit</label>
                         <div class="input-group">
-                                <%= f.text_field :price, placeholder: "ex: 45€", class: "form-control" %>
-                                <div class="input-group-addon">€</div>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><strong><i class="fas fa-euro-sign"></i></strong></div>
+                                </div>
+                            <%= f.text_field :price, placeholder: "ex: 45€", class: "form-control" %>
                         </div>
                     </div>
                 </div>
             </div>
-                
+
             <div class="row">
-                <div class="form-group">
-                    <%= f.check_box :active %> Annonce active
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :active %> Annonce active
+                    </div>
                 </div>
             </div>
                 
@@ -142,3 +147,5 @@
         </div>
     </div>
 </div>
+
+<%= render 'shared/errors' %>
