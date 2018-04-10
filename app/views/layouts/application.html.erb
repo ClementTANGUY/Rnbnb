@@ -19,21 +19,21 @@
           <a class="navbar-brand" href="/"> <%= image_tag("favicon.ico", width: '32', height: '32' ) %> R'n'Bnb</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          
+
           <form class="form-inline navbar-left" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
             <div class="search">
               <span class="fa fa-search"></span>
               <input type="text" name="search" id="search" placeholder="Rechercher" class="form-control fin" />
             </div>
-          </form>          
+          </form>
           <ul class="nav navbar-nav ml-auto p-1 destra">
-             
+
             <li class="nav-item">
                <a href="<%= new_room_path %>" class="nav-link">
                   <i class="fas fa-home"></i> Devenez hôte
               </a>
             </li>
-             
+
              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fas fa-envelope"></i>  Messages
@@ -49,11 +49,11 @@
                 <% end %>
                  <%= current_user.fullname %>  <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" class="nav-link">Mes annonces</a></li>
+                <li><a href="<%= rooms_path %>" class="nav-link">Mes annonces</a></li>
                 <li><a href="#" class="nav-link">Mes réservations</a></li>
                 <li><a href="#" class="nav-link">Mes voyages</a></li>
                 <li><a href="<%= edit_user_registration_path %>" class="nav-link">Modifier mon profil</a></li>
-                
+
                 <li role="separator" class="divider"></li>
                 <li><a rel="nofollow" data-method="delete" href="<%= destroy_user_session_path %>" class="nav-link">Déconnexion</a></li>
                 <% else %>
@@ -80,9 +80,9 @@
    <div class="container">
       <%= yield %>
    </div>
-    
 
-   
-    
+
+
+
   </body>
 </html>
