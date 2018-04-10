@@ -93,6 +93,41 @@
                 </div>
             </div>
         </div>
+        <!-- Carousel -->
+          <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                      <% if @photos %>
+                          <% @photos.each do |photo| %>
+                            <ol class="carousel-indicators">
+                              <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                            </ol>
+                          <% end %>
+                      <% end %>
 
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <% if @photos %>
+                      <% @photos.each do |photo| %>
+                      <div class="carousel-item <%= 'active' if photo.id == @photos[0].id %>">
+                        <%= image_tag photo.image.url(), class:"d-block w-100" %>
+                      </div>
+                      <% end %>
+                      <% end %>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Précédent</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Suivant</span>
+                    </a>
+                  </div>
+              </div>
+          </div>
     </div>
 </div>
