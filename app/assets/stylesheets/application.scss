@@ -46,6 +46,17 @@ nav {
   text-decoration: underline;
 }
 
+.title-link {
+  text-decoration: none;
+  color: #565a5c;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+  color: #565a5c;
+}
+
+
 .btn-primary.btn {
   border: 1px solid #ff5a5f;
   border-radius: 2px;

@@ -56,11 +56,12 @@ class RoomsController < ApplicationController
 
   def destroy
     @room.destroy
-    if @room.destroy
-      redirect_to :index, notice: "votre annonce à bien été suprimmée..."
-    else
-      render @room, alert: "problème lors de la spression de votre annonce..."
+    if params[:images]
+        params[:images].each do |i|
+          @room.photos.destroy(image: i)
+        end
     end
+    redirect_to rooms_path, notice: "votre annonce à bien été suprimmée..."
   end
 
 
@@ -75,7 +76,7 @@ class RoomsController < ApplicationController
       params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room,
                                    :listing_name, :summary, :address, :is_wifi, :is_tv, :is_closet,
                                    :is_shampoo, :is_breakfast, :is_heating, :is_air, :is_kitchen, :price,
-                                   :active)
+                                   :active, :photo_id)
   end
 
   def require_same_user
