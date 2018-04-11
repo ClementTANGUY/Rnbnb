@@ -41,6 +41,7 @@
                                  <div class="col-md-3 right">
 
                                      <%= link_to "Mettre à jour", edit_room_path(room), class: "btn btn-success" %>
+                                     <a href="<%= room_path(room) %>" class="btn btn-sm btn-danger" data-confirm="sur ?" data-method="delete">Supprimer</a>
 
                                  </div>
 
