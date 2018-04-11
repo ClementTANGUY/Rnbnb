@@ -47,7 +47,7 @@
                 <% else %>
                   <img src="assets/images/default_image.png" class="rounded-circle avatar-small">
                 <% end %>
-                 <%= current_user.fullname %>  <span class="caret"></span></a>
+                 <%= current_user.fullname.titleize %>  <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="<%= rooms_path %>" class="nav-link">Mes annonces</a></li>
                 <li><a href="#" class="nav-link">Mes réservations</a></li>
