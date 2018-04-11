@@ -28,19 +28,17 @@
 
                                  <div class="col-md-2">
 
-                                      <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %>
+                                      <a href="<%= room_path(room) %>"><%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %><a/>
 
                                  </div>
 
-                                 <div class="col-md-7">
+                                 <div class="col-md-6">
 
-                                        <h4><%= room.listing_name %></h4>
-
+                                  <a href="<%= room_path(room) %>" class="title-link"><h4><strong><%= room.listing_name %></strong></h4></a>
                                  </div>
 
-                                 <div class="col-md-3 right">
-
-                                     <%= link_to "Mettre à jour", edit_room_path(room), class: "btn btn-success" %>
+                                 <div class="col-md-4 right">
+                                     <%= link_to "Mettre à jour", edit_room_path(room), class: "btn btn-sm btn-success" %>
                                      <a href="<%= room_path(room) %>" class="btn btn-sm btn-danger" data-confirm="sur ?" data-method="delete">Supprimer</a>
 
                                  </div>
