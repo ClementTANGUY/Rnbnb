@@ -48,6 +48,7 @@ class RoomsController < ApplicationController
         end
       end
       @photos = @room.photos
+      @room.save
       redirect_to edit_room_path(@room), notice: "votre annonce à été modifiée avec succés..."
     else
       render :edit, alert: "votre annonce n'a pas pu être modifiée..."
