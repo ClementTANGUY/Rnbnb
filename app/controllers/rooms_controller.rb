@@ -56,11 +56,7 @@ class RoomsController < ApplicationController
 
   def destroy
     @room.destroy
-    if @room.destroy
-      redirect_to :index, notice: "votre annonce à bien été suprimmée..."
-    else
-      render @room, alert: "problème lors de la spression de votre annonce..."
-    end
+    redirect_to :index, notice: "votre annonce à bien été suprimmée..."
   end
 
 
