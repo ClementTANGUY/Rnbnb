@@ -2,6 +2,12 @@
 
 	<h3>Réserver maintenant</h3>
 	<br>
+	<div class="row">
+        <div class="col-md-12 price_tag">
+            <span>€ <%= @room.price %></span>
+             <span class="pull-right">Par nuit</span>
+          </div>
+        </div>
 	<%= form_for([@room, @room.reservations.new]) do |f| %>
 
 	     <div class="row">
@@ -29,6 +35,8 @@
 	     	<%= f.hidden_field :room_id, value: @room.id %>
 
 	     	<%= f.hidden_field :price, value: @room.price %>
+
+	     	<%= f.hidden_field :total, id: 'reservation_total' %>
 
 
 	 		<%= f.submit "Demande de réservation ", class: "btn btn-primary btn-block" %>
