@@ -1,14 +1,24 @@
-//= require flatpickr/flatpickr.min
-//= require flatpickr/fr
+//= require jquery3
+//= require flatpickr/flatpickr
 //= require turbolinks
 //= require_self
 
 
 
+$(function() {
+ 
+	$('.form-datepicker').flatpickr({
+	 		altInput: true,
 
+	 		minDate: new Date(),
 
-flatpickr('.form-datepicker', {
-	altInput: true,
-	altFormat: 'j F Y',
-	minDate: new Date(),
-})
+	        altFormat: 'j F Y',
+	 
+	        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+	 
+	        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']                              
+	 
+	});
+ 
+});
+
