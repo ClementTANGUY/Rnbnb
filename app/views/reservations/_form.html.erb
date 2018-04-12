@@ -37,14 +37,44 @@
 	     	<%= f.hidden_field :price, value: @room.price %>
 
 	     	<%= f.hidden_field :total, id: 'reservation_total' %>
+			
 
+			<div id="preview" style="display: none;">
+		 
+		       <table class="reservation-table" >
+		 
+		               <tbody>
+		 
+		                    <tr>
+		 
+		                        <td>Nuit(s)</td>
+		 
+		                        <td><span id="reservation_days"></span></td>
+		 
+		                    </tr>
+		 
+		                    <tr>
+		 
+		                         <td>Total</td>
+		 
+		                         <td><span id="reservation_sum"></span>€</td>
+		 
+		                   </tr>
+		 
+		               </tbody>
+		 
+		        </table>
+		 
+		 	</div>
 
-	 		<%= f.submit "Demande de réservation ", class: "btn btn-primary btn-block" %>
-	 		
+			<div class="container-fluid">
+	 			 <%= f.submit "Demande de réservation ", class: "btn btn-primary btn-block" %>
+	 		</div>
 
 	 	</div>
 
 	<% end %>
+
 </div>
 
  
