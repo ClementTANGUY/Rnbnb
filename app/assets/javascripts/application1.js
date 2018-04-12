@@ -12,11 +12,7 @@ $(function() {
 
 	 		minDate: new Date(),
 
-	        altFormat: 'j F Y',
-	 
-	        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-	 
-	        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']                              
+	        altFormat: 'j F Y',                             
 	 
 	});
  
