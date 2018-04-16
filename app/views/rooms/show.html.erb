@@ -173,17 +173,17 @@
 
               <div class="col-md-4">
 
-                  <div class="card card-default">
+                  <div class="card card-default text-center">
 
                      <div class="card-header">
 
-                          <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-
+                          <img src="<%= room.photos[0].image.url(:medium) if room.photos.length > 0 %>" class="card-photo">
+       
                      </div>
 
                      <div class="card-body">
 
-                       <%= link_to room.listing_name, room %><br>
+                        <a href="<%= room_path(room) %>" class="title-link"><%= room.listing_name.titleize %></a> <br>
 
                         (à <%= (room.distance*1.6).round(2) %> km)
 
