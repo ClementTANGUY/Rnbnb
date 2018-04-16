@@ -14,12 +14,15 @@ Rails.application.routes.draw do
 
 
   resources :rooms do
-    resources :reservations, only: [:create, :preload, :preview]
+    resources :reservations, only: [:create]
   end
 
 
   resources :photos
 
+
+  get '/preload' => 'reservations#preload'
+  get '/preview' => 'reservations#preview'
 
 
 
