@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-9">
                         <h4><%= @room.listing_name.titleize %></h4>
-                        <%= @room.address %>
+                        <%= @room.address %> <a class="sidebar-link"><span id="average_rating_header"></span> <%= @reviews.count %></a>
                         <div class="row text-center row-space-1">
                             <div class="col-sm-3">
                                 <i class="fa fa-home fa-2x"></i>
@@ -61,7 +61,7 @@
         </div>
 
 
-        
+
         <!-- Description -->
         <div class="row">
             <div class="col-md-8">
@@ -132,6 +132,24 @@
                   </div>
               </div>
           </div>
+
+          <!-- Reviews -->
+
+     <div class="row">
+          <div class="col-md-12">
+                <h3><%= pluralize(@reviews.count, 'commentaire') %> <span id="average_rating"></span></h3>
+                <div class="container">
+                    <div>
+                        <%= render 'reviews/form' if @booked && !@hasReview %>
+                    </div>
+                    <div>
+                        <%= render 'reviews/list' %>
+                    </div>
+               </div>
+            </div>
+     </div>
+
+
           <!-- Google maps -->
         <br>
         <div class="row">
@@ -178,7 +196,7 @@
                      <div class="card-header">
 
                           <img src="<%= room.photos[0].image.url(:medium) if room.photos.length > 0 %>" class="card-photo">
-       
+
                      </div>
 
                      <div class="card-body">
@@ -198,3 +216,19 @@
        </div>
     </div>
 </div>
+
+    <script>
+        $('#average_rating').raty({
+            path: '/assets',
+            readOnly: true,
+            score: <%= @room.average_rating %>
+        });
+    </script>
+
+    <script>
+        $('#average_rating_header').raty({
+            path: '/assets',
+            readOnly: true,
+            score: <%= @room.average_rating %>
+        });
+    </script>
