@@ -61,7 +61,7 @@
         </div>
 
 
-        
+
         <!-- Description -->
         <div class="row">
             <div class="col-md-8">
@@ -132,6 +132,24 @@
                   </div>
               </div>
           </div>
+
+          <!-- Reviews -->
+
+     <div class="row">
+          <div class="col-md-12">
+                <h3>Commentaires <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+                <div class="container">
+                    <div>
+                        <%= render 'reviews/form' if @booked && !@hasReview %> 
+                    </div>
+                    <div>
+                        <%= render 'reviews/list' %>
+                    </div>
+               </div>
+            </div>
+     </div>
+
+
           <!-- Google maps -->
         <br>
         <div class="row">
@@ -178,7 +196,7 @@
                      <div class="card-header">
 
                           <img src="<%= room.photos[0].image.url(:medium) if room.photos.length > 0 %>" class="card-photo">
-       
+
                      </div>
 
                      <div class="card-body">
