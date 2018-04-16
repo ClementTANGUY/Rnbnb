@@ -25,6 +25,7 @@ gem 'devise-i18n'
 gem 'pg'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'paperclip'
 gem 'toastr_rails'
