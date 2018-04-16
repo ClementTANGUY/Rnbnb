@@ -15,12 +15,13 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require toastr_rails
-//= require turbolinks
 //= require_tree .
+//= require_self
 
 
 toastr.options = {
- 
+
  "positionClass": "toast-bottom-right"
- 
+
  }
+
