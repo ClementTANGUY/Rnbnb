@@ -130,6 +130,7 @@
                             
                             $.ajax({
                                 url: '/preview',
+                                dataType: 'json',
                                 data: input,
                                 success: function(data) {
                                     if (data.conflict) {
@@ -181,6 +182,7 @@
                             $.ajax({
                                 url: '/preview',
                                 data: input,
+                                dataType: 'json',
                                 success: function(data) {
                                     if (data.conflict) {
                                         $('#message').show();
