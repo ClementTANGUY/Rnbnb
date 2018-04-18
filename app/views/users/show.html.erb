@@ -33,7 +33,25 @@
            </div>
  
  </div>
-<br>
+ <br>
+
+ <div class="row">
+   <div class="card-default text-center col-md-3">
+   <div class="card card-header">
+     État du compte
+   </div>
+     <% if @user.confirmed_at %>
+        <div class="card card-body", style="color: #00cec9;">
+          Compte vérifié
+     <% else %>
+        <div class="card card-body", style="color: #d63031;">
+          Compte non-vérifié
+     <% end %>
+   </div>
+ </div>
+ </div>
+
+ <br>
  <h4>Annonces (<%= @rooms.length %>)</h4><br>
         <div class="row">
             <% @rooms.each do |room| %>
