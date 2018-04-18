@@ -6,6 +6,10 @@ class RoomsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
+
+
+
+
   def new
     @room = current_user.rooms.new
   end
@@ -92,3 +96,6 @@ class RoomsController < ApplicationController
   end
 
 end
+
+
+

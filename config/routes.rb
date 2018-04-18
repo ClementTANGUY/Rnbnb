@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   get '/search' => 'pages#search'
 
+  get '/preload' => 'reservations#preload'
+  get '/preview' => 'reservations#preview'
 end

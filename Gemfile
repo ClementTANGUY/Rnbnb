@@ -24,6 +24,7 @@ gem 'devise-i18n'
 
 gem 'pg'
 
+gem 'jquery-ui-rails'
 gem 'jquery-rails'
 
 gem 'paperclip'
