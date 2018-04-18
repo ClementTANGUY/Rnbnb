@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
 
-  resources :rooms do
+  resources :rooms, path: 'annonces' do
     resources :reservations, only: [:create]
   end
 
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
-
+  get 'voyages' => 'reservations#your_trips', as: 'your_trips'
 
 
 end
