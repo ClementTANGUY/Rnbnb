@@ -2,7 +2,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :photos, dependent: :destroy
   has_many :reservations
-
+  has_many :reviews
 
 
   validates :home_type, presence: true
@@ -27,20 +27,9 @@ class Room < ApplicationRecord
 
   after_validation :geocode, if: :address_changed?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def average_rating
+      reviews.count == 0 ? 0 : reviews.average(:star).round(2)
+    end
 
 
 end
