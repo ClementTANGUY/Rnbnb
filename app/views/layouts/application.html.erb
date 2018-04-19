@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicon.ico' %>
   
@@ -12,72 +13,14 @@
   </head>
 
   <body>
-    <nav class="nav navbar navbar-light navbar-expand-md">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggler gauche" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="/"> <%= image_tag("favicon.ico", width: '32', height: '32' ) %> R'n'Bnb</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-
-          <form class="form-inline navbar-left" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-            <div class="search">
-              <span class="fa fa-search"></span>
-              <input type="text" name="search" id="search" placeholder="Rechercher" class="form-control fin" />
-            </div>
-          </form>
-          <ul class="nav navbar-nav ml-auto p-1 destra">
-
-            <li class="nav-item">
-               <a href="<%= new_room_path %>" class="nav-link">
-                  <i class="fas fa-home"></i> Devenez hôte
-              </a>
-            </li>
-
-             <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-envelope"></i>  Messages
-                </a>
-            </li>
-            <% if user_signed_in? %>
-            <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <% if current_user.avatar %>
-                  <img class="rounded-circle avatar-small" src="<%= avatar_url(current_user) %>"/>
-                <% else %>
-                  <img src="assets/images/default_image.png" class="rounded-circle avatar-small">
-                <% end %>
-                 <%= current_user.fullname.titleize %>  <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="<%= rooms_path %>" class="nav-link">Mes annonces</a></li>
-                <li><a href="#" class="nav-link">Mes réservations</a></li>
-                <li><a href="#" class="nav-link">Mes voyages</a></li>
-                <li><a href="<%= edit_user_registration_path %>" class="nav-link">Modifier mon profil</a></li>
-
-                <li role="separator" class="divider"></li>
-                <li><a rel="nofollow" data-method="delete" href="<%= destroy_user_session_path %>" class="nav-link">Déconnexion</a></li>
-                <% else %>
-                <li>
-                  <a href="<%= new_user_registration_path %>" class="nav-link rose">S'inscrire</a>
-                </li>
-                <li>
-                  <a href="<%= new_user_session_path %>" class="nav-link rose">Se connecter</a>
-                </li>
-                <% end %>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    
+    <%= render 'layouts/navigation' %>
 
 
 
 
 
-<%= render 'shared/message' %>
+    <%= render 'shared/message' %>
 
    <div class="container">
       <%= yield %>
@@ -85,6 +28,5 @@
 
 
 
-    <%= javascript_include_tag 'application1', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
