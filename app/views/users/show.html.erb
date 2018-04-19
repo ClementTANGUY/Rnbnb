@@ -28,7 +28,49 @@
 
                       <%= @user.description %>
 
+
+            </div>
+ 
+           </div>
+ 
+ </div>
+ <br>
+
+ <div class="row">
+   <div class="card-default text-center col-md-3">
+   <div class="card card-header">
+     État du compte
+   </div>
+     <% if @user.confirmed_at %>
+        <div class="card card-body", style="color: #00cec9;">
+          Compte vérifié
+     <% else %>
+        <div class="card card-body", style="color: #d63031;">
+          Compte non-vérifié
+     <% end %>
+   </div>
+ </div>
+ </div>
+
+ <br>
+ <h4>Annonces (<%= @rooms.length %>)</h4><br>
+        <div class="row">
+            <% @rooms.each do |room| %>
+            <div class="col-md-4">
+                <div class="card card-default text-center">
+                    <div class="card-header preview">
+                        <a href="<%= room_path(room) %>" class="title-link"><img src="<%= room.photos[0].image.url(:medium) if room.photos.length > 0 %>" class="card-photo"></a>
+                    </div>
+                    <div class="card-body">
+                        <a href="<%= room_path(room) %>" class="title-link"><%= room.listing_name.titleize %></a>
+                    </div>
                 </div>
+            </div>
+            <% end %>
+        </div>
+
+        <br>
+        <br>
 
 
                 
@@ -69,3 +111,4 @@
        <% end %>
        </div>
  </div>
+
