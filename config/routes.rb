@@ -33,5 +33,8 @@ Rails.application.routes.draw do
   get 'voyages' => 'reservations#your_trips', as: 'your_trips'
   get 'reservations' => 'reservations#your_reservations', as: 'your_reservations'
 
-
+  resources :conversations, only: [:index, :create] do
+       resources :messages, only: [:index, :create]
+  end
+  
 end
