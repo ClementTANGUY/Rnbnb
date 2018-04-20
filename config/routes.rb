@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 
 
+
   resources :rooms, path: 'annonces' do
 
     resources :reservations, only: [:create]
@@ -23,10 +24,12 @@ Rails.application.routes.draw do
 
   resources :photos
 
+  get '/search' => 'pages#search'
 
 
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
+
   get 'voyages' => 'reservations#your_trips', as: 'your_trips'
   get 'reservations' => 'reservations#your_reservations', as: 'your_reservations'
 
