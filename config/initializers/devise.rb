@@ -1,4 +1,4 @@
-omni# frozen_string_literal: true
+# frozen_string_literal: true
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -12,7 +12,7 @@ Devise.setup do |config|
 
     when "production"
 
-    config.omniauth :facebook, '2017534241902474', 'bc7f60ed63ec8f1f2ecc1f9de1525316', scope: "email", info_fields: 'email,name', 
+    config.omniauth :facebook, '2017534241902474', 'bc7f60ed63ec8f1f2ecc1f9de1525316', scope: "email", info_fields: 'email,name'
 
  end
   # The secret key used by Devise. Devise uses this key to generate
