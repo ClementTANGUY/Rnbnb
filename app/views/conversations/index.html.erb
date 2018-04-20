@@ -18,20 +18,20 @@
 
                           <div class="row conversation">
 
-                               <div class="col-md-2">
- 
+                               <div class="col-md-12">
+
                                    <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
 
                                </div>
 
-                               <div class="col-md-2">
+                               <div class="col-md-12">
 
                                     <%= other.fullname %><br>
 
-                                   <%= conversation.messages.last.created_at%>
+                                   <%= timeago_tag conversation.messages.last.created_at, :lang=>:fr%>
                                </div>
 
-                               <div class="col-md-8">
+                               <div class="col-md-12">
 
                                     <%= conversation.messages.last.content %>
 
