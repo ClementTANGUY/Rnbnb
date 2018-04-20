@@ -2,10 +2,19 @@ omni# frozen_string_literal: true
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+Devise.setup do |config|
 
+  case Rails.env
 
-config.omniauth :facebook, '166460090718400', 'e6fa49be0730496549b5091fdbc50225', scope: "email", info_fields: 'email,name'
+     when "development"
 
+     config.omniauth :facebook, '166460090718400', 'e6fa49be0730496549b5091fdbc50225', scope: "email", info_fields: 'email,name'
+
+    when "production"
+
+    config.omniauth :facebook, '2017534241902474', 'bc7f60ed63ec8f1f2ecc1f9de1525316', scope: "email", info_fields: 'email,name', 
+
+ end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
