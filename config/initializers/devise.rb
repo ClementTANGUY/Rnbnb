@@ -12,7 +12,7 @@ Devise.setup do |config|
 
     when "production"
 
-    config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email", info_fields: 'email,name', app_id: 2017534241902474
+    config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email", info_fields: 'email,name', app_id: '2017534241902474'
 
  end
   # The secret key used by Devise. Devise uses this key to generate
